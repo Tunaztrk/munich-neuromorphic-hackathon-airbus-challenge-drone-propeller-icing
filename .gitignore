@@ -16,3 +16,12 @@
 !/model/tests/test_*.py
 /model/config/*
 !/model/config/default.json
+
+# Explicitly approved synthetic illustrations and their generator.
+!/examples/
+/examples/*
+!/examples/generate_synthetic_figures.py
+!/assets/
+/assets/*
+!/assets/synthetic_current.png
+!/assets/synthetic_ice_area.png

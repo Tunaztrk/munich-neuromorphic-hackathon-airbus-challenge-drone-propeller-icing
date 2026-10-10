@@ -83,6 +83,32 @@ For each future one-second interval, the decision examines all five current pred
 
 These are project-defined criteria, not certified flight-safety limits. **Safe** means neither criterion is exceeded by the measurements and estimates being evaluated; it is not a guarantee of overall aircraft safety. Before sufficient history is available, status is unavailable rather than Safe. This decision layer is an explicit rule applied to neural outputs, not a learned binary classifier.
 
+## Synthetic trajectory illustrations
+
+The experimental dataset is confidential, so experimental test curves are not
+published here. Instead, the figures below illustrate general behaviours relevant
+to the project: gradual growth, an abrupt shedding-like drop, and recovery.
+They are generated independently from simple equations; no confidential trial
+is copied, normalized or traced.
+
+![Synthetic current trajectory and a hand-defined delayed response](assets/synthetic_current.png)
+
+![Synthetic ice-area trajectory and a hand-defined delayed response](assets/synthetic_ice_area.png)
+
+The blue lines are synthetic references. The orange lines are **hand-defined
+illustrative responses, not outputs from the trained SNN or GRU**. Their close
+agreement is constructed to explain trajectory comparison and delayed adjustment;
+it is not evidence that the models achieve this accuracy. Actual performance
+cannot be inferred from these illustrations. The delay at the abrupt change also
+shows why following a trajectory must be distinguished from predicting shedding
+in advance.
+
+Generate the figures without any dataset or checkpoint:
+
+```sh
+model/.venv/bin/python examples/generate_synthetic_figures.py
+```
+
 ## Data structures and processing
 
 The live input is a timestamp and a **12-value telemetry vector** in the order defined by [`RAW_COLUMNS`](model/uav_snn/data.py): current, measured RPM, target RPM, throttle, voltage, test-section temperature, liquid water content, two calibrated sensor temperatures, and three strain-related channels. Camera ice area, ice pixels and trial IDs are excluded from the neural input vectors.
@@ -104,7 +130,8 @@ The caller aligns sensor observations causally, calls the combined API every 0.2
 
 ## Repository contents
 
-This public edition contains source code, a generic configuration and tests built from artificial signals. **Experimental datasets, trained weights, fitted normalization values, experiment results, plots and notebooks are excluded.** No experimental performance figures are published in this edition.
+This public edition contains source code, a generic configuration and tests built from artificial signals. **Experimental datasets, trained weights, fitted normalization values, experiment results, experimental plots and notebooks are excluded. The two
+public illustrations above are synthetic.** No experimental performance figures are published in this edition.
 
 Useful entry points:
 
