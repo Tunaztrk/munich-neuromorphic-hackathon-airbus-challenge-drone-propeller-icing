@@ -1,0 +1,39 @@
+{
+  "source_csv": "private_data/dataset.csv",
+  "input_schema": "telemetry_v2",
+  "sample_interval_seconds": 0.2,
+  "max_observation_age_seconds": 0.5,
+  "warmup_seconds": 20.0,
+  "forecast_seconds": 10.0,
+  "forecast_stride_seconds": 1.0,
+  "feature_set": "all",
+  "smooth_time_constant_seconds": 0.5,
+  "hold_feature_seconds": 5.0,
+  "hidden_size": 48,
+  "neuron_time_constants_seconds": [
+    1.0,
+    4.0
+  ],
+  "trace_time_constant_seconds": 1.0,
+  "spike_threshold": 1.0,
+  "surrogate_slope": 5.0,
+  "learn_decay": true,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "activity_regularization": 0.0001,
+  "gradient_clip_norm": 1.0,
+  "epochs": 8,
+  "batch_size": 8,
+  "chunk_steps": 128,
+  "patience": 3,
+  "seed": 2026,
+  "device": "cpu",
+  "cpu_threads": 2,
+  "ridge_regularization": 1.0,
+  "validation_trials": [
+    2
+  ],
+  "test_trials": [
+    3
+  ]
+}

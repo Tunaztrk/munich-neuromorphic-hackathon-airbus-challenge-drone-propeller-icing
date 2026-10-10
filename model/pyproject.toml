@@ -1,0 +1,6 @@
+[project]
+name = "uav-icing-snn"
+version = "0.1.0"
+description = "Causal spiking multi-horizon current forecasting for UAV icing trials"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0", "torch>=2.6", "matplotlib>=3.9"]

@@ -1,0 +1,18 @@
+# Only the reviewed source and documentation layout is eligible for Git.
+/*
+!/README.md
+!/.gitignore
+!/model/
+/model/*
+!/model/__init__.py
+!/model/pyproject.toml
+!/model/requirements.lock.txt
+!/model/uav_snn/
+!/model/tests/
+!/model/config/
+/model/uav_snn/*
+!/model/uav_snn/*.py
+/model/tests/*
+!/model/tests/test_*.py
+/model/config/*
+!/model/config/default.json
